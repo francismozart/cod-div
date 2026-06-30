@@ -941,6 +941,7 @@
                 <a
                     class="btn btn-primary"
                     href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                    data-action="goto-checkout"
                     >Quiero acceder</a
                 >
             </div>
@@ -966,6 +967,7 @@
                         <a
                             class="btn btn-primary"
                             href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                            data-action="goto-checkout"
                             >Quiero comprender la Biblia</a
                         >
                         <a class="btn btn-ghost" href="#oferta"
@@ -1056,6 +1058,7 @@
                         <a
                             class="btn btn-primary"
                             href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                            data-action="goto-checkout"
                             >Sí, quiero</a
                         >
                     </div>
@@ -1190,6 +1193,7 @@
                         <a
                             class="btn btn-primary"
                             href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                            data-action="goto-checkout"
                             >Quiero comprender la Biblia</a
                         >
                     </div>
@@ -1357,6 +1361,7 @@
                     <a
                         class="btn btn-primary"
                         href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                        data-action="goto-checkout"
                         >Sí, quiero aprender</a
                     >
                 </div>
@@ -1547,6 +1552,7 @@
                         <a
                             class="btn btn-primary"
                             href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                            data-action="goto-checkout"
                             >Quiero los bonos</a
                         >
                     </div>
@@ -1685,6 +1691,7 @@
                                 <a
                                     class="btn btn-primary"
                                     href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                                    data-action="goto-checkout"
                                     >Quiero el Código Divino</a
                                 >
                             </div>
@@ -1814,6 +1821,7 @@
                     <a
                         class="btn btn-primary"
                         href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                        data-action="goto-checkout"
                         >Quiero el Código Divino</a
                     >
                 </div>
@@ -1835,6 +1843,7 @@
             <a
                 class="btn btn-primary"
                 href="https://pay.hotmart.com/D106421757C?checkoutMode=10"
+                data-action="goto-checkout"
                 >Quiero ahora</a
             >
         </div>
@@ -1869,6 +1878,14 @@
                 },
                 { threshold: 0 },
             ).observe(document.getElementById("top"));
+
+            const checkoutButtons = document.querySelectorAll('[data-action="goto-checkout"]');
+            checkoutButtons.forEach(checkoutButton => {
+                checkoutButton.addEventListener("click", (event) => {
+                    fbq('track', 'InitiateCheckout');
+                })
+            });
+            
         </script>
     </body>
 </html>
